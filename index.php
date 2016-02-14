@@ -5,7 +5,7 @@ require('header.php');
 ?>
 <div  data-role="page">
 <div  data-role="header">
-	<h1>神经元网络平台</h1>
+	<h1> POI APP</h1>
 </div>
 <div data-role="content">
 <?php 
@@ -15,18 +15,26 @@ $id = $_REQUEST['id'];
 $type= $_REQUEST['type'];
 
 switch ($action) {
-	case 'test':
+	case 'test1':
 		echo datapointnow();
 		break;
 	case 'dashboard':
 		dashboard($id,$type);
 		//dashboard($id,'humidity');
-		
 		break;
 	case 'dashboardnow':
 		dashboardnow($id,$type);
 		break;
-		
+	case 'adduser':
+		addOpp($_REQUEST['person'],$_REQUEST['contact'],$_REQUEST['description']);
+		break;
+	case 'useradd':	
+ 		showOneOpp(-1);
+		break;
+	case 'userlist':
+		showOpps();
+		break;
+	
 	default:
 		home();
 }
